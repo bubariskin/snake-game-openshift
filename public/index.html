@@ -1,17 +1,152 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Snake Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nokia Snake</title>
+
   <style>
-    body { background: #000; color: #fff; text-align: center; font-family: sans-serif; }
-    canvas { background: #111; margin-top: 20px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #1c1c1c;
+      font-family: "Courier New", monospace;
+    }
+
+    .phone {
+      width: 460px;
+      padding: 35px 30px 45px;
+      border-radius: 55px 55px 80px 80px;
+      background: linear-gradient(#2d4054, #172635);
+      border: 6px solid #0b1118;
+      box-shadow:
+        0 15px 40px rgba(0,0,0,0.6),
+        inset 0 0 15px rgba(255,255,255,0.08);
+    }
+
+    .brand {
+      text-align: center;
+      color: #d7d7d7;
+      font-family: Arial, sans-serif;
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .screen-frame {
+      background: #111;
+      padding: 12px;
+      border-radius: 18px;
+      border: 4px solid #555;
+      box-shadow: inset 0 0 8px #000;
+    }
+
+    .screen {
+      background: #a8b88a;
+      padding: 12px;
+      border: 5px solid #69745c;
+      box-shadow: inset 0 0 15px rgba(0,0,0,0.25);
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-between;
+      color: #263123;
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    canvas {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: #a8b88a;
+      image-rendering: pixelated;
+      border: 3px solid #384433;
+    }
+
+    .controls {
+      text-align: center;
+      margin-top: 18px;
+      color: #d5d5d5;
+      font-size: 14px;
+    }
+
+    .keypad {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .key {
+      height: 42px;
+      border-radius: 15px;
+      background: linear-gradient(#9ca8b0, #66727a);
+      border: 2px solid #202830;
+      box-shadow: inset 0 2px 3px rgba(255,255,255,0.3);
+    }
+
+    .nav {
+      grid-column: 2;
+      height: 50px;
+      border-radius: 50%;
+      background: #596873;
+      border: 3px solid #1c252c;
+    }
   </style>
 </head>
+
 <body>
-  <h1>Snake Game (Nokia-style)</h1>
-  <p>Керування: стрілки ↑ ↓ ← → на клавіатурі</p>
-  <canvas id="game" width="400" height="400"></canvas>
-  <script src="game.js"></script>
+
+<div class="phone">
+
+  <div class="brand">NOKIA</div>
+
+  <div class="screen-frame">
+    <div class="screen">
+
+      <div class="status">
+        <span>SNAKE II</span>
+        <span id="score">000</span>
+      </div>
+
+      <canvas id="game" width="400" height="400"></canvas>
+
+    </div>
+  </div>
+
+  <div class="controls">
+    Керування: ← ↑ ↓ →
+  </div>
+
+  <div class="keypad">
+    <div></div>
+    <div class="nav"></div>
+    <div></div>
+
+    <div class="key"></div>
+    <div class="key"></div>
+    <div class="key"></div>
+
+    <div class="key"></div>
+    <div class="key"></div>
+    <div class="key"></div>
+  </div>
+
+</div>
+
+<script src="game.js"></script>
+
 </body>
 </html>
